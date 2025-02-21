@@ -241,14 +241,3 @@ Les logs PostgreSQL se trouvent généralement dans :
 ```
 
 ---
-
-## Auteur
-
-Projet réalisé par **[Votre Nom]**.
-
----
-
-## Licence
-
-Ce projet est sous licence MIT.
-
