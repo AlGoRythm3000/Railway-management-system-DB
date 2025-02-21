@@ -1,0 +1,4 @@
+station_depart,station_arrivee,date_depart,prix_total
+1,3,2024-03-01,350
+4,5,2024-03-02,180
+1,5,2024-03-03,420

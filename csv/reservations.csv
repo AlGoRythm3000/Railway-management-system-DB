@@ -1,0 +1,4 @@
+mail_passager,id_trajet,date_reservation,statut
+mbappe@psg.fr,1,2024-02-15 10:30:00,confirmé
+benzema@rm.fr,2,2024-02-16 14:20:00,confirmé
+modric@rm.fr,3,2024-02-17 09:15:00,confirmé
