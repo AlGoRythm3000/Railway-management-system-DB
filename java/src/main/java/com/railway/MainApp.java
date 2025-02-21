@@ -20,7 +20,7 @@ public class MainApp extends JFrame {
         JPanel mainPanel = new JPanel(new BorderLayout(10, 10));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
-        // Query selector
+        // selection de requete
         String[] queries = {
             "Liste des trajets",
             "Liste des passagers",
@@ -34,7 +34,7 @@ public class MainApp extends JFrame {
         resultArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(resultArea);
         
-        // Execute button
+        // bouton d'éxec
         JButton executeButton = new JButton("Exécuter");
         executeButton.addActionListener(e -> executeQuery());
         
@@ -58,6 +58,7 @@ public class MainApp extends JFrame {
         String query = "";
         switch (querySelector.getSelectedIndex()) {
             case 0:
+            // requete pour avoir la liste des trajets
                 query = "SELECT t.id, s1.ville as depart, s2.ville as arrivee, t.date_depart, t.prix_total " +
                        "FROM \"Trajet\" t " +
                        "JOIN \"Station\" s1 ON t.station_depart = s1.id " +
@@ -65,11 +66,13 @@ public class MainApp extends JFrame {
                 break;
 
             case 1:
+            // selection de passagers
                 query = "SELECT u.nom, u.prenom, u.mail FROM \"Utilisateur\" u " +
                        "JOIN \"Passager\" p ON u.mail = p.mail_passager";
                 break;
 
             case 2:
+            // personnel et les infos sur chaque tronçon
                 query = "SELECT u.nom, u.prenom, p.role, s1.ville as depart, s2.ville as arrivee " +
                        "FROM \"Assignation_Personnel\" ap " +
                        "JOIN \"Personnel\" p ON ap.mail_personnel = p.mail_personnel " +
@@ -80,6 +83,7 @@ public class MainApp extends JFrame {
                 break;
 
             case 3:
+            // statistiques sur les réservations
                 query = "SELECT COUNT(*) as total_reservations, " +
                        "AVG(prix_total) as prix_moyen FROM \"Trajet\" t " +
                        "JOIN \"Reservation\" r ON t.id = r.id_trajet";
@@ -92,6 +96,7 @@ public class MainApp extends JFrame {
                 StringBuilder result = new StringBuilder();
                 while (rs.next()) {
                     switch (querySelector.getSelectedIndex()) {
+                    // 4 requêtes par défauts
                         case 0 -> result.append(String.format("Trajet %d: %s -> %s le %s (%.2f€)\n",
                                 rs.getInt("id"),
                                 rs.getString("depart"),
